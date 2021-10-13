@@ -4,15 +4,15 @@ Date: Fri, 11 Dec 2020 10:16:25 -0500
 Subject: [PATCH] fix swallow for openbsd
 
 ---
- config.def.h |   9 +-
+ config.h |   9 +-
  config.mk    |   3 +-
  dwm.c        | 235 +++++++++++++++++++++++++++++++++++++++++++++++++--
  3 files changed, 237 insertions(+), 10 deletions(-)
 
-diff --git a/config.def.h b/config.def.h
+diff --git a/config.h b/config.h
 index 1c0b587..fe51476 100644
---- a/config.def.h
-+++ b/config.def.h
+--- a/config.h
++++ b/config.h
 @@ -3,6 +3,7 @@
  /* appearance */
  static const unsigned int borderpx  = 1;        /* border pixel of windows */
