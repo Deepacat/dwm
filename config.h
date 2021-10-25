@@ -10,7 +10,7 @@ static const unsigned int gappih    = 2;       /* horiz inner gap between window
 static const unsigned int gappiv    = 2;       /* vert inner gap between windows */
 static const unsigned int gappoh    = 2;       /* horiz outer gap between windows and screen edge */
 static const unsigned int gappov    = 2;       /* vert outer gap between windows and screen edge */
-static const int smartgaps          = 0;        /* 1 means no outer gap when there is only one window */
+static const int smartgaps          = 1;        /* 1 means no outer gap when there is only one window */
 static const int swallowfloating    = 1;        /* 1 means swallow floating windows by default */
 static const int systraypinningfailfirst = 1;   /* 1: if pinning fails, display systray on the first monitor, False: display systray on the last monitor*/
 static const int showsystray        = 1;     /* 0 means no systray */
@@ -35,6 +35,7 @@ static const char *const autostart[] = {
 	"xfce4-clipman", NULL,
 	"lxpolkit", NULL,
 	"slstatus", NULL,
+	"nitrogen", "--restore", NULL,
 	NULL /* terminate */
 };
 
@@ -83,6 +84,8 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() 
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, topbar ? NULL : "-b", NULL };
 static const char *roficmd[] = { "rofi", "-show", NULL };
 static const char *termcmd[] = { "alacritty", NULL };
+static const char *thunarcmd[] = { "thunar", NULL };
+static const char *firefoxcmd[] = { "firefox", NULL };
 static const char *mutecmd[] = { "pactl", "set-sink-mute", "0", "toggle", NULL };
 static const char *volupcmd[] = { "pactl", "set-sink-volume", "0", "+5%", NULL };
 static const char *voldowncmd[] = { "pactl", "set-sink-volume", "0", "-5%", NULL };
@@ -91,9 +94,12 @@ static const char *brdowncmd[] = { "sudo", "xbacklight", "-dec", "10", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
-	{ MODKEY,                       XK_d,      spawn,          {.v = dmenucmd } },
-	{ MODKEY|ShiftMask,             XK_d,      spawn,          {.v = roficmd } },
-	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
+	{ MODKEY,                       XK_d,      spawn,          {.v = dmenucmd    } },
+	{ MODKEY|ShiftMask,             XK_d,      spawn,          {.v = roficmd     } },
+	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd     } },
+	{ MODKEY,                       XK_e,      spawn,          {.v = thunarcmd   } },
+	{ MODKEY,                       XK_w,      spawn,          {.v = firefoxcmd  } },
+	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd     } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
