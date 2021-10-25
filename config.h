@@ -96,7 +96,6 @@ static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_d,      spawn,          {.v = dmenucmd    } },
 	{ MODKEY|ShiftMask,             XK_d,      spawn,          {.v = roficmd     } },
-	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd     } },
 	{ MODKEY,                       XK_e,      spawn,          {.v = thunarcmd   } },
 	{ MODKEY,                       XK_w,      spawn,          {.v = firefoxcmd  } },
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd     } },
