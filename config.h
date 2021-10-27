@@ -82,7 +82,7 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, topbar ? NULL : "-b", NULL };
-static const char *roficmd[] = { "rofi", "-show", NULL };
+static const char *j4menucmd[] = { "j4-dmenu-desktop", NULL };
 static const char *termcmd[] = { "alacritty", NULL };
 static const char *thunarcmd[] = { "thunar", NULL };
 static const char *firefoxcmd[] = { "firefox", NULL };
@@ -95,7 +95,7 @@ static const char *brdowncmd[] = {"xbacklight", "-dec", "10", NULL };
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_d,      spawn,          {.v = dmenucmd    } },
-	{ MODKEY|ShiftMask,             XK_d,      spawn,          {.v = roficmd     } },
+	{ MODKEY|ShiftMask,             XK_d,      spawn,          {.v = j4menucmd     } },
 	{ MODKEY,                       XK_e,      spawn,          {.v = thunarcmd   } },
 	{ MODKEY,                       XK_w,      spawn,          {.v = firefoxcmd  } },
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd     } },
@@ -106,15 +106,15 @@ static Key keys[] = {
 	{ MODKEY,                       XK_o,      incnmaster,     {.i = -1 } },
 	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
 	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
-	{ MODKEY,                       XK_Return, zoom,           {0} },
+	{ MODKEY,                       XK_z,      zoom,           {0} },
 	{ MODKEY,                       XK_Tab,    view,           {0} },
 	{ MODKEY|ShiftMask,             XK_q,      killclient,     {0} },
 	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
-	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
 	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
 	{ MODKEY,                       XK_g,      setlayout,      {.v = &layouts[3]} },
 	{ MODKEY|ShiftMask,             XK_f,      togglefullscr,  {0} },
 	{ MODKEY,                       XK_space,  setlayout,      {0} },
+	{ MODKEY,                       XK_f,      togglefloating, {0} },
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
 	{ MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },
