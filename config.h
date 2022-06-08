@@ -18,11 +18,11 @@ static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const char *fonts[]          = { "FiraCode Nerd Font:size=13" };
 static const char dmenufont[]       = "FiraCode Nerd Font:size=13";
-static const char col_gray1[]       = "#1a1a1a";
+static const char col_gray1[]       = "#1E2026";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
 static const char col_gray4[]       = "#eeeeee";
-static const char col_primary[]     = "#924441";
+static const char col_primary[]     = "#C33C35";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
@@ -33,15 +33,19 @@ static const char *const autostart[] = {
 	"picom", NULL,
 	"nm-applet", NULL,
 	"volumeicon", NULL,
-	"xfce4-clipman", NULL,
+	"klipper", NULL,
+	"xfce4-power-manager", NULL,
 	"lxpolkit", NULL,
 	"slstatus", NULL,
+	"/usr/lib/xfce4/notifyd/xfce4-notifyd", NULL,
+	"QT_QPA_PLATFORMTHEME=qt5ct", NULL,
+	"wmname", "LG3D", NULL,
 	"nitrogen", "--restore", NULL,
 	NULL /* terminate */
 };
 
 /* tagging */
-static const char *tags[] = {"","","","","",""};
+static const char *tags[] = {"","","","","",""};
 
 static const Rule rules[] = {
 	/* xprop(1):
